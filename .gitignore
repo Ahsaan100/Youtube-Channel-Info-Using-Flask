@@ -1,2 +1,5 @@
+#Ignore the Virtual environment folder
 youtube_channel/
 
+#Ignore the .env file
+.env

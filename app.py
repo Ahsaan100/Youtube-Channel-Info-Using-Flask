@@ -1,11 +1,15 @@
 from flask import Flask, render_template, request
 from googleapiclient.discovery import build
 import re
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
 
 # Replace with your actual YouTube API key
-API_KEY = "AIzaSyCOEwuQ2vJm4XFxKbMrOSwQHXgjBihAa6Y"
+API_KEY = os.getenv("API_KEY")
 
 def extract_channel_id_or_handle(channel_url):
     """Extracts channel ID or handle from a YouTube channel URL."""
