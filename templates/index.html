@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Channel Info Checker</title>
+</head>
+<body>
+    <h1>YouTube Channel Info Checker</h1>
+    <form method="post" action="/">
+        <label for="channel_url">Enter YouTube Channel URL:</label>
+        <input type="text" id="channel_url" name="channel_url" required>
+        <button type="submit">Get Channel Info</button>
+    </form>
+
+    {% if channel_info %}
+        {% if channel_info.error %}
+            <p>{{ channel_info.error }}</p>
+        {% else %}
+            <h2>Channel Information:</h2>
+            <ul>
+                <li><strong>Channel Name:</strong> {{ channel_info['Channel Name'] }}</li>
+                <li><strong>Subscribers:</strong> {{ channel_info['Subscribers'] }}</li>
+                <li><strong>Videos:</strong> {{ channel_info['Videos'] }}</li>
+                <li><strong>Views:</strong> {{ channel_info['Views'] }}</li>
+                <li><strong>Creation Date:</strong> {{ channel_info['Creation Date'] }}</li>
+                <li><strong>Country:</strong> {{ channel_info['Country'] }}</li>
+                <li><strong>Monetized:</strong> {{ channel_info['Monetized'] }}</li>
+            </ul>
+        {% endif %}
+    {% endif %}
+</body>
+</html>
